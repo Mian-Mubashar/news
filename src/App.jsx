@@ -30,8 +30,9 @@ import Sender from './Sender';
 import AppProvider from './AppProvider';
 import Footer from './Footer';
 import Login from './Login';
-import Fetch from './Integration/Fetch';
+// import Fetch from './Integration/Fetch';
 import { useState } from 'react';
+import Carousel from './Carousal';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -47,8 +48,13 @@ const App = () => {
 
           <Route
             path="/"
-            element={isLoggedIn ? <Fetch /> : <Navigate to="/login" />}
+            element={isLoggedIn ? <Carousel/> : <Navigate to="/login" />}
           />
+
+          {/* <Route
+            path="/"
+            element={isLoggedIn ? <Fetch /> : <Navigate to="/login" />}
+          /> */}
           <Route
             path="/sender"
             element={isLoggedIn ? <Sender /> : <Navigate to="/login" />}
